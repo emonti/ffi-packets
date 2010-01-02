@@ -1,6 +1,7 @@
 = ffi-packets
 
-Description goes here.
+A collection of packets built using FFI::Structs. This gem is designed for use
+with ffi bindings to raw network libraries such as libnet, libdnet, and libpcap.
 
 == Note on Patches/Pull Requests
  
