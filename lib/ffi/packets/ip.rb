@@ -127,6 +127,9 @@ module FFI::Packets
     class Opt < ::FFI::Struct
       include ::FFI::DRY::NetStructHelper
 
+      IP_OPT_LEN = Constants::IP_OPT_LEN
+      IP_OPT_LEN_MAX = Constants::IP_OPT_LEN_MAX
+
       DATA_LEN = IP_OPT_LEN_MAX - IP_OPT_LEN
     
       dsl_layout do
@@ -219,5 +222,6 @@ module FFI::Packets
 
     end # class Opt
 
+  end # module Ip
 end
 

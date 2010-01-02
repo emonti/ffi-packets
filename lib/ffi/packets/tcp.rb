@@ -72,6 +72,9 @@ module FFI::Packets
     class Opt < ::FFI::Struct
       include ::FFI::DRY::NetStructHelper
 
+      TCP_OPT_LEN = Constants::TCP_OPT_LEN
+      TCP_OPT_LEN_MAX = Constants::TCP_OPT_LEN_MAX
+
       DATA_LEN = TCP_OPT_LEN_MAX - TCP_OPT_LEN
     
       dsl_layout do
