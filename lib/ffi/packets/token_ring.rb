@@ -13,5 +13,13 @@ module FFI::Packets
       end
     end
 
+    class HdrExtra < FFI::Struct
+      include ::FFI::DRY::NetStructHelper
+
+      dsl_layout do
+        field  :rcf,  :uint16,        :desc => 'rcf?'
+        array  :rseg, [:uint16, 16],  :desc => 'routing segment'
+      end
+    end
   end
 end
