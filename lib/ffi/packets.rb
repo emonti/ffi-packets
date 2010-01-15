@@ -8,6 +8,7 @@ require 'ffi/packets/util'
 
 # L2 protocols:
 require 'ffi/packets/eth'
+require 'ffi/packets/arcnet'
 require 'ffi/packets/fddi'
 require 'ffi/packets/token_ring'
 require 'ffi/packets/llc'
