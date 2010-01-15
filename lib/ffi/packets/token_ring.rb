@@ -6,10 +6,10 @@ module FFI::Packets
       include ::FFI::DRY::NetStructHelper
 
       dsl_layout do
-        field :ac,    :uint8,   :desc => 'access control'
-        field :fc,    :uint8,   :desc => 'frame control'
-        field :dst,   MacAddr,  :desc => 'destination address'
-        field :src,   MacAddr,  :desc => 'source address'
+        field  :ac,   :uint8,   :desc => 'access control'
+        field  :fc,   :uint8,   :desc => 'frame control'
+        struct :dst,  MacAddr,  :desc => 'destination address'
+        struct :src,  MacAddr,  :desc => 'source address'
       end
     end
 

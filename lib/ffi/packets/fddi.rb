@@ -7,9 +7,9 @@ module FFI::Packets
     include ::FFI::DRY::NetStructHelper
 
     dsl_layout do
-      field :fc,    :uint8,   :desc => 'field control'
-      field :dst,   MacAddr,  :desc => 'destination address'
-      field :src,   MacAddr,  :desc => 'source address'
+      field   :fc,    :uint8,   :desc => 'field control'
+      struct  :dst,   MacAddr,  :desc => 'destination address'
+      struct  :src,   MacAddr,  :desc => 'source address'
     end
   end
 end

@@ -6,9 +6,17 @@ require 'ffi/dry'
 require 'ffi/packets/constants'
 require 'ffi/packets/util'
 
+# L2 protocols:
 require 'ffi/packets/eth'
+require 'ffi/packets/fddi'
+require 'ffi/packets/token_ring'
+require 'ffi/packets/llc'
+
+# L3 protocols
 require 'ffi/packets/ip'
 require 'ffi/packets/arp'
+
+# L4 protocols
 require 'ffi/packets/icmp'
 require 'ffi/packets/tcp'
 require 'ffi/packets/udp'
