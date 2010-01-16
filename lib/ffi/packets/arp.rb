@@ -10,8 +10,7 @@ module FFI::Packets
     #   field :pln, :uint16, :desc => 'length of proto address (IP_ADDR_LEN)'
     #   field :op,  :uint16, :desc => 'operation'
     #
-    class Hdr < ::FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Hdr < AutoStruct
       
       dsl_layout do
         field :hrd, :uint16, :desc => 'format of hardware address'
@@ -41,8 +40,7 @@ module FFI::Packets
     #   array :tha, [:uint8, ETH_ADDR_LEN], :desc => 'target hardware address'
     #   array :tpa, [:uint8, IP_ADDR_LEN],  :desc => 'target protocol address'
     #
-    class Ethip < ::FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Ethip < AutoStruct
       ETH_ADDR_LEN = Constants::ETH_ADDR_LEN
       IP_ADDR_LEN = Constants::IP_ADDR_LEN
 

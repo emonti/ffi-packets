@@ -10,8 +10,7 @@ module FFI::Packets
     #     uint16_t  icmp_cksum;  /* ones complement cksum of struct */
     #   };
     #
-    class Hdr < ::FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Hdr < AutoStruct
     
       dsl_layout do
         field :icmp_type,    :uint8
@@ -75,8 +74,7 @@ module FFI::Packets
         #     uint8_t   icmp_data __flexarr;  /* optional data */
         #   };
         # 
-        class Echo < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class Echo < AutoStruct
       
           dsl_layout do
             field :icmp_id, :uint16
@@ -93,8 +91,7 @@ module FFI::Packets
         #     uint8_t   icmp_ip __flexarr;  /* IP hdr + 8 bytes of pkt */
         #   };
         # 
-        class NeedFrag < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class NeedFrag < AutoStruct
       
           dsl_layout do
             field :icmp_void, :uint16
@@ -111,8 +108,7 @@ module FFI::Packets
         #     uint8_t   icmp_ip __flexarr;  /* IP hdr + 8 bytes of pkt */
         #   };
         # 
-        class Quote < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class Quote < AutoStruct
       
           dsl_layout do
             field :icmp_void, :uint32 
@@ -132,11 +128,9 @@ module FFI::Packets
         #     } icmp_rtr __flexarr;      /* variable # of routers */
         #   };
         # 
-        class RtrAdvert < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class RtrAdvert < AutoStruct
 
-          class RtrData < ::FFI::Struct
-            include ::FFI::DRY::NetStructHelper
+          class RtrData < AutoStruct
         
             dsl_layout do
               field :icmp_void, :uint32
@@ -162,8 +156,7 @@ module FFI::Packets
         #     uint32_t  icmp_ts_tx;    /* transmit timestamp */
         #   };
         # 
-        class Timestamp < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class Timestamp < AutoStruct
       
           dsl_layout do
             field :icmp_id, :uint32
@@ -182,8 +175,7 @@ module FFI::Packets
         #     uint32_t  icmp_mask;    /* address mask */
         #   };
         # 
-        class Mask < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class Mask < AutoStruct
 
           dsl_layout do
             field :icmp_id, :uint32
@@ -203,8 +195,7 @@ module FFI::Packets
         #     uint32_t  icmp_mtu;    /* MTU in bytes */
         #   };
         # 
-        class Traceroute < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class Traceroute < AutoStruct
       
           dsl_layout do
             field :icmp_id,   :uint16
@@ -225,8 +216,7 @@ module FFI::Packets
         #     uint8_t    icmp_names __flexarr;  /* variable number of names */
         #   };
         # 
-        class DnsReply < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class DnsReply < AutoStruct
       
           dsl_layout do
             field :icmp_id, :uint16
@@ -243,8 +233,7 @@ module FFI::Packets
         #     uint16_t  icmp_seq;
         #   };
         # 
-        class IdSeq < ::FFI::Struct
-          include ::FFI::DRY::NetStructHelper
+        class IdSeq < AutoStruct
       
           dsl_layout do
             field :icmp_id, :uint16

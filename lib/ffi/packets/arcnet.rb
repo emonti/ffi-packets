@@ -3,8 +3,7 @@ module FFI::Packets
 
     # Structure of a 2.5MB/s Arcnet header on the BSDs,
     # as given to interface code.
-    class Hdr < FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Hdr < AutoStruct
 
       dsl_layout do
         field :arc_shost, :uint8
@@ -16,8 +15,7 @@ module FFI::Packets
       end
     end
 
-    class LLFrag < FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class LLFrag < AutoStruct
 
       dsl_layout do
         field :arc_flag,  :uint8
@@ -25,8 +23,7 @@ module FFI::Packets
       end
     end
 
-    class Exception < FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Exception < AutoStruct
 
       dsl_layout do
         field :arc_type2,   :uint8
@@ -38,8 +35,7 @@ module FFI::Packets
     # Structure of a 2.5MB/s Arcnet header on Linux.  Linux has
     # an extra "offset" field when given to interface code, and
     # never presents packets that look like exception frames.
-    class LinuxHdr < FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class LinuxHdr < AutoStruct
 
       dsl_layout do
         field :arc_shost,   :uint8

@@ -1,7 +1,6 @@
 
 module FFI::Packets
-  class LLC < FFI::Struct
-    include ::FFI::DRY::NetStructHelper
+  class LLC < AutoStruct
 
     dsl_layout do
       field :dsap,    :uint8,   :desc => "Destination Service Access Point"

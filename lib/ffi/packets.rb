@@ -5,6 +5,7 @@ require 'ffi/dry'
 
 require 'ffi/packets/constants'
 require 'ffi/packets/util'
+require 'ffi/packets/auto_struct'
 
 # L2 protocols:
 require 'ffi/packets/eth'

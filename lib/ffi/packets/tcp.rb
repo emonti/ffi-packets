@@ -1,5 +1,5 @@
 module FFI::Packets
-  module Tcp
+  module TCP
 
     # TCP header, without options
     #
@@ -13,8 +13,7 @@ module FFI::Packets
     #   field :sum,    :uint16, :desc => 'checksum'
     #   field :urgp,   :uint16, :desc => 'urgent pointer'
     #
-    class Hdr < ::FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Hdr < AutoStruct
     
       dsl_layout do
         field :sport,  :uint16, :desc => 'source port'
@@ -69,8 +68,7 @@ module FFI::Packets
     #      } opt_data;
     #   } __attribute__((__packed__));
     #
-    class Opt < ::FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Opt < AutoStruct
 
       TCP_OPT_LEN = Constants::TCP_OPT_LEN
       TCP_OPT_LEN_MAX = Constants::TCP_OPT_LEN_MAX

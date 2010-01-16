@@ -26,8 +26,7 @@ module FFI::Packets
     #   field :src,     :uint32,  :desc => 'source address'
     #   field :dst,     :uint32,  :desc => 'destination address'
     #
-    class Hdr < ::FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Hdr < AutoStruct
     
       dsl_layout do
         field :v_hl,    :uint8,   :desc => 'v=vers(. & 0xf0) / '+
@@ -124,8 +123,7 @@ module FFI::Packets
     #   array :len,   :uint8,            :desc => 'option length >= IP_OPE_LEN'
     #   array :data, [:uint8, DATA_LEN], :desc => 'option message data '
     #
-    class Opt < ::FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Opt < AutoStruct
 
       IP_OPT_LEN = Constants::IP_OPT_LEN
       IP_OPT_LEN_MAX = Constants::IP_OPT_LEN_MAX
@@ -154,8 +152,7 @@ module FFI::Packets
       #   field :hr,    :uint16,     :desc => 'handling restrictions'
       #   array :tcc,   [:uint8, 3], :desc => 'transmission control code'
       #
-      class DataSEC < ::FFI::Struct
-        include ::FFI::DRY::NetStructHelper
+      class DataSEC < AutoStruct
  
         dsl_layout do
           field :sec,   :uint16,     :desc => 'security'
@@ -173,8 +170,7 @@ module FFI::Packets
       #                                       'flg  = address/timestamp flag'
       #   field :iptspairs, :uint32, :desc => 'IP addr/ts pairs, var-length'
       #
-      class DataTS < ::FFI::Struct
-        include ::FFI::DRY::NetStructHelper
+      class DataTS < AutoStruct
 
         dsl_layout do
           field :ptr,       :uint8,  :desc => 'from start of option'
@@ -190,8 +186,7 @@ module FFI::Packets
       #   field :ptr,     :uint8,   :desc => 'from start of option'
       #   field :iplist,  :uint32,  :desc => 'var-length list of IPs'
       #
-      class DataRR < ::FFI::Struct
-        include ::FFI::DRY::NetStructHelper
+      class DataRR < AutoStruct
       
         dsl_layout do
           field :ptr,     :uint8,   :desc => 'from start of option'
@@ -209,8 +204,7 @@ module FFI::Packets
       #     uint32_t  origip; /* originator IP address */
       #   } __attribute__((__packed__));
       #
-      class DataTR < ::FFI::Struct
-        include ::FFI::DRY::NetStructHelper
+      class DataTR < AutoStruct
       
         dsl_layout do
           field :id,      :uint16, :desc => 'ID number'

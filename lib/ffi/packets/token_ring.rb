@@ -2,8 +2,7 @@ require 'ffi/packets/mac_addr'
 
 module FFI::Packets
   class TokenRing 
-    class Hdr < FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class Hdr < AutoStruct
 
       dsl_layout do
         field  :ac,   :uint8,   :desc => 'access control'
@@ -13,8 +12,7 @@ module FFI::Packets
       end
     end
 
-    class HdrExtra < FFI::Struct
-      include ::FFI::DRY::NetStructHelper
+    class HdrExtra < AutoStruct
 
       dsl_layout do
         field  :rcf,  :uint16,        :desc => 'rcf?'
