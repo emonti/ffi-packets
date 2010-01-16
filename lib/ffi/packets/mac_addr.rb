@@ -35,5 +35,9 @@ module FFI::Packets
     end
 
     alias addr string
+
+    def inspect
+      "#<#{self.class} data=#{addr}>"
+    end
   end
 end
