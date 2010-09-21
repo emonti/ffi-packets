@@ -1,18 +1,16 @@
 require 'ffi/packets/mac_addr'
 
 module FFI::Packets
-  class TokenRing 
-    class Hdr < AutoStruct
+  class TokenRing < AutoStruct
 
-      dsl_layout do
-        field  :ac,   :uint8,   :desc => 'access control'
-        field  :fc,   :uint8,   :desc => 'frame control'
-        struct :dst,  MacAddr,  :desc => 'destination address'
-        struct :src,  MacAddr,  :desc => 'source address'
-      end
+    dsl_layout do
+      field  :ac,   :uint8,   :desc => 'access control'
+      field  :fc,   :uint8,   :desc => 'frame control'
+      struct :dst,  MacAddr,  :desc => 'destination address'
+      struct :src,  MacAddr,  :desc => 'source address'
     end
 
-    class HdrExtra < AutoStruct
+    class RouteExtra < AutoStruct
 
       dsl_layout do
         field  :rcf,  :uint16,        :desc => 'rcf?'
@@ -21,3 +19,4 @@ module FFI::Packets
     end
   end
 end
+

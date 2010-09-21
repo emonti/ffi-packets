@@ -13,19 +13,6 @@ module FFI::Packets
     end
 
     # IP header, without options
-    #
-    #   field :v_hl,    :uint8,   :desc => 'v=vers(. & 0xf0) / '+
-    #                                      'hl=hdr len(. & 0x0f)'
-    #   field :tos,     :uint8,   :desc => 'type of service'
-    #   field :len,     :uint16,  :desc => 'total length (incl header)'
-    #   field :id,      :uint16,  :desc => 'identification'
-    #   field :off,     :uint16,  :desc => 'fragment offset and flags'
-    #   field :ttl,     :uint8,   :desc => 'time to live'
-    #   field :proto,   :uint8,   :desc => 'protocol'
-    #   field :sum,     :uint16,  :desc => 'checksum'
-    #   field :src,     :uint32,  :desc => 'source address'
-    #   field :dst,     :uint32,  :desc => 'destination address'
-    #
     class Hdr < AutoStruct
     
       dsl_layout do
