@@ -25,7 +25,9 @@ module FFI
       end
 
       def dump
-        nsz = members.map{|n| n.to_s.size }.sort.last
+        nsz = members.map{|n| n.to_s.size }.max
+
+        # return a formatted "dump" of fields and values
         members.map do |field|
           val = self.__send__(field)
           "  #{field.to_s.rjust(nsz)} = #{val.inspect}"
