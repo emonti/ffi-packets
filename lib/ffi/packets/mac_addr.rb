@@ -4,7 +4,7 @@ module FFI::Packets
     include ::FFI::DRY::StructHelper
 
     # struct eth_addr { ... } eth_addr_t;
-    dsl_layout{ array :data, [:uchar, Constants::ETH_ADDR_LEN] }
+    dsl_layout{ array :data, [:uchar, FFI::Packets::Constants::ETH_ADDR_LEN] }
 
     # Adds the ability to initialize a new MacAddr with a mac address
     # string such as 'de:ad:be:ef:ba:be'. This argument is only parsed

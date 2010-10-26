@@ -7,8 +7,8 @@ module FFI::Packets
 
     dsl_layout do
       field   :fc,    :uint8,   :desc => 'field control'
-      struct  :dst,   MacAddr,  :desc => 'destination address'
-      struct  :src,   MacAddr,  :desc => 'source address'
+      struct  :dst,   FFI::Packets::MacAddr,  :desc => 'destination address'
+      struct  :src,   FFI::Packets::MacAddr,  :desc => 'source address'
     end
   end
 end

@@ -41,14 +41,14 @@ module FFI::Packets
     #   array :tpa, [:uint8, IP_ADDR_LEN],  :desc => 'target protocol address'
     #
     class Ethip < AutoStruct
-      ETH_ADDR_LEN = Constants::ETH_ADDR_LEN
-      IP_ADDR_LEN = Constants::IP_ADDR_LEN
+      eth_addr_len = ETH_ADDR_LEN = Constants::ETH_ADDR_LEN
+      ip_addr_len = IP_ADDR_LEN = Constants::IP_ADDR_LEN
 
       dsl_layout do
-        array :sha, [:uint8, ETH_ADDR_LEN], :desc => 'sender hardware address'
-        array :spa, [:uint8, IP_ADDR_LEN],  :desc => 'sender protocol address'
-        array :tha, [:uint8, ETH_ADDR_LEN], :desc => 'target hardware address'
-        array :tpa, [:uint8, IP_ADDR_LEN],  :desc => 'target protocol address'
+        array :sha, [:uint8, eth_addr_len], :desc => 'sender hardware address'
+        array :spa, [:uint8, ip_addr_len],  :desc => 'sender protocol address'
+        array :tha, [:uint8, eth_addr_len], :desc => 'target hardware address'
+        array :tpa, [:uint8, ip_addr_len],  :desc => 'target protocol address'
       end
 
     end # Ethip

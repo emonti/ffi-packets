@@ -43,6 +43,7 @@ module FFI::Packets
       class Data < FFI::Union
         include ::FFI::DRY::NetStructHelper
 
+        maxlen = Opt::MAX_DATA_LEN
 
         dsl_layout do 
           field :mss,     :uint16,        :desc => 'TCP_OPT_MSS'
@@ -53,15 +54,16 @@ module FFI::Packets
           field :cc,      :uint32,        :desc => 'TCP_OPT_CC{NEW,ECHO}'
           field :cksum,   :uint8,         :desc => 'TCP_OPT_ALTSUM'
           array :md5,     [:uint8, 16],   :desc => 'TCP_OPT_MD5'
-          array :data8,   [:uint8, MAX_DATA_LEN]
+          array :data8,   [:uint8, maxlen]
         end
       end
 
+      data_hdr = Data
    
       dsl_layout do
         field  :otype,    :uint8, :desc => 'option type'
         field  :len,      :uint8, :desc => 'option length >= TCP_OPT_LEN'
-        union  :opt_data, Data, :offset => 2,  :desc => 'tcp option data'
+        union  :opt_data, data_hdr, :offset => 2,  :desc => 'tcp option data'
       end
 
       # overrides copy size to account for alignment errors

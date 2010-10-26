@@ -120,7 +120,7 @@ module FFI::Packets
       dsl_layout do
         field :otype, :uint8,   :desc => 'option type'
         field :len,   :uint8,   :desc => 'option length >= IP_OPE_LEN'
-        array :data, [:uint8, DATA_LEN], :desc => 'option message data '
+        array :data, [:uint8, FFI::Packets::Ip::Opt::DATA_LEN], :desc => 'option message data '
       end
 
       # Option types (otype) - http://www.iana.org/assignments/ip-parameters

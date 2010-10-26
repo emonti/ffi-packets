@@ -138,11 +138,13 @@ module FFI::Packets
             end
           end
 
+          rtrdata = RtrData
+
           dsl_layout do
             field  :num_addrs, :uint8
             field  :wpa,       :uint8
             field  :lifetime,  :uint16
-            struct :router,    RtrData    # flexarr ... variable # of routers
+            struct :router,    rtrdata # flexarr ... variable # of routers
           end
         end
 

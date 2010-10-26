@@ -11,8 +11,8 @@ module FFI::Packets
     end
 
     dsl_layout do
-      struct :dst,   MacAddr, :desc => 'destination address'
-      struct :src,   MacAddr, :desc => 'source address'
+      struct :dst,   FFI::Packets::MacAddr, :desc => 'destination address'
+      struct :src,   FFI::Packets::MacAddr, :desc => 'source address'
       field  :etype, :ushort, :desc => 'ethernet payload type'
     end
 
