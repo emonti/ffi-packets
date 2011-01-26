@@ -45,9 +45,8 @@ module FFI::Packets
       # This value is the size of the IP header (including opts if present)
       # in 32-bit words. The byte size maximum is 15*4 - 60 bytes.
       def hl=(val)
-        raise(ArgumentError, "value for header length too high") if val > 0xf
         self[:v_hl] &= 0xf0
-        self[:v_hl] += val
+        self[:v_hl] += (val 0xf)
       end
 
       # Returns the value of the hl field. This field is a 4-bit value occupying
